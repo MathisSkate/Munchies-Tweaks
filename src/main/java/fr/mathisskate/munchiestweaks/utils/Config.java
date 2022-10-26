@@ -10,7 +10,7 @@ public final class Config {
 
         static {
             BUILDER.push("Config of Munchies Tweaks");
-            hasMobsEffects = BUILDER.comment("If you want to play with Mobs Effects ?").define("Mobs Effects", true);
+            hasMobsEffects = BUILDER.comment("If you want to play with Mobs Effects").define("Mobs Effects", true);
             BUILDER.pop();
             SPEC = BUILDER.build();
         }
