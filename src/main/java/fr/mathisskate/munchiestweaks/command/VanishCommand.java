@@ -4,7 +4,6 @@ import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
-import fr.mathisskate.munchiestweaks.MunchiesTweaksMain;
 import fr.mathisskate.munchiestweaks.util.References;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
