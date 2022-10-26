@@ -3,7 +3,7 @@ package fr.mathisskate.munchiestweaks;
 import fr.mathisskate.munchiestweaks.event.MobEffectEvents;
 import fr.mathisskate.munchiestweaks.event.VanishEvents;
 import fr.mathisskate.munchiestweaks.registry.RegisterCommands;
-import fr.mathisskate.munchiestweaks.utils.Config;
+import fr.mathisskate.munchiestweaks.util.Config;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;

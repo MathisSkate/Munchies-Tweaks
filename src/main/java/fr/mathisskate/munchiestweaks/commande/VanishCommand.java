@@ -5,7 +5,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import fr.mathisskate.munchiestweaks.MunchiesTweaksMain;
-import fr.mathisskate.munchiestweaks.utils.Utils;
+import fr.mathisskate.munchiestweaks.util.References;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.entity.player.PlayerEntity;
@@ -34,12 +34,12 @@ public class VanishCommand {
                 if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99) {
                     player.setInvisible(false);
                     player.removePotionEffect(Effects.INVISIBILITY);
-                    player.sendMessage(new StringTextComponent(Utils.PREFIX + TextFormatting.RED + "Tu n'es plus Vanish !"), DUMMY_UUID);
+                    player.sendMessage(new StringTextComponent(References.PREFIX + TextFormatting.RED + "Tu n'es plus Vanish !"), DUMMY_UUID);
                 }
             } else {
                 player.setInvisible(true);
                 player.addPotionEffect(new EffectInstance(Effects.INVISIBILITY, 99999999 * 20, 99, false, false));
-                player.sendMessage(new StringTextComponent(Utils.PREFIX + TextFormatting.GREEN + "Tu es Vanish !"), DUMMY_UUID);
+                player.sendMessage(new StringTextComponent(References.PREFIX + TextFormatting.GREEN + "Tu es Vanish !"), DUMMY_UUID);
             }
         }
         return Command.SINGLE_SUCCESS;

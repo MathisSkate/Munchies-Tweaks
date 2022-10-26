@@ -5,7 +5,7 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.builder.LiteralArgumentBuilder;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
-import fr.mathisskate.munchiestweaks.utils.Utils;
+import fr.mathisskate.munchiestweaks.util.References;
 import net.minecraft.command.CommandSource;
 import net.minecraft.command.Commands;
 import net.minecraft.command.arguments.EntityArgument;
@@ -28,7 +28,7 @@ public class TppCommand {
         ServerPlayerEntity player = commandContext.getSource().asPlayer();
         ServerPlayerEntity targetPlayer = EntityArgument.getPlayer(commandContext, "player");
         player.teleport(targetPlayer.getServerWorld(), targetPlayer.getPosX(), targetPlayer.getPosY(), targetPlayer.getPosZ(), targetPlayer.rotationYaw, targetPlayer.rotationPitch);
-        player.sendMessage(new StringTextComponent(Utils.PREFIX + "Tu t'es téléporté à " + targetPlayer.getDisplayName().getString()), DUMMY_UUID);
+        player.sendMessage(new StringTextComponent(References.PREFIX + "Tu t'es téléporté à " + targetPlayer.getDisplayName().getString()), DUMMY_UUID);
         return Command.SINGLE_SUCCESS;
     }
 }
