@@ -7,7 +7,7 @@ group = 'fr.mathisskate'
 version = '1.1'
 
 java {
-    archivesBaseName = 'munchiestweaks'
+    archivesBaseName = 'Munchies-Tweaks'
     toolchain.languageVersion = JavaLanguageVersion.of(8)
 }
 

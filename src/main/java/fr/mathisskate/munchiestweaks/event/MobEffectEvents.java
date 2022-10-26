@@ -1,6 +1,5 @@
 package fr.mathisskate.munchiestweaks.event;
 
-import fr.mathisskate.munchiestweaks.utils.Config;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.monster.DrownedEntity;

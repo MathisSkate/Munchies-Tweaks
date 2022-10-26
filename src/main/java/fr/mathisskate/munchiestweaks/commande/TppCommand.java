@@ -14,13 +14,13 @@ import net.minecraft.util.text.StringTextComponent;
 
 import static net.minecraft.util.Util.DUMMY_UUID;
 
-public class TpCommand {
+public class TppCommand {
     public static void register(CommandDispatcher<CommandSource> dispatcher) {
         LiteralArgumentBuilder<CommandSource> tp =
                 Commands.literal("tpp")
                         .requires(commandSource -> commandSource.hasPermissionLevel(1))
                         .then(Commands.argument("player", EntityArgument.player())
-                        .executes(TpCommand::teleportToPlayer));
+                        .executes(TppCommand::teleportToPlayer));
         dispatcher.register(tp);
     }
 
