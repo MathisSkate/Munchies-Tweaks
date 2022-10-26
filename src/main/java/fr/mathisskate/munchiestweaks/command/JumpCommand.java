@@ -34,7 +34,7 @@ public class JumpCommand {
         ServerPlayerEntity player = commandContext.getSource().asPlayer();
         ServerWorld world = commandContext.getSource().getWorld();
 
-        RayTraceResult block = player.pick(50.0D, 0.0F, false);
+        RayTraceResult block = player.pick(100.0D, 0.0F, false);
 
         if(block.getType() == RayTraceResult.Type.BLOCK) {
             BlockPos pos = ((BlockRayTraceResult)block).getPos();
