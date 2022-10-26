@@ -17,6 +17,7 @@ public class RegisterCommands {
         FurnaceCommand.register(dispatcher);
         SiteCommand.register(dispatcher);
         TopCommand.register(dispatcher);
+        TpHereCommand.register(dispatcher);
         TppCommand.register(dispatcher);
         VanishCommand.register(dispatcher);
     }

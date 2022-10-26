@@ -30,7 +30,6 @@ public class VanishCommand {
         if (commandContext.getSource().getEntity() instanceof PlayerEntity) {
             PlayerEntity player = (PlayerEntity) commandContext.getSource().getEntity();
             if (player.getActivePotionEffect(Effects.INVISIBILITY) != null) {
-                MunchiesTweaksMain.LOGGER.info(player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier());
                 if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99) {
                     player.setInvisible(false);
                     player.removePotionEffect(Effects.INVISIBILITY);

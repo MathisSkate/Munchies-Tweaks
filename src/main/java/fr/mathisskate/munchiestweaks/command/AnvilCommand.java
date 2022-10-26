@@ -29,7 +29,7 @@ public class AnvilCommand {
         NetworkHooks.openGui(player, new INamedContainerProvider() {
             @Override
             public ITextComponent getDisplayName() {
-                return new StringTextComponent(player.getDisplayName().getString() +  " Ender Chest");
+                return new StringTextComponent(player.getDisplayName().getString() +  " Anvil");
             }
 
             @Override
