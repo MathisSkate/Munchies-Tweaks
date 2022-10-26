@@ -16,12 +16,12 @@ import static net.minecraft.util.Util.DUMMY_UUID;
 
 public class TppCommand {
     public static void register(CommandDispatcher<CommandSource> dispatcher) {
-        LiteralArgumentBuilder<CommandSource> tp =
+        LiteralArgumentBuilder<CommandSource> tpp =
                 Commands.literal("tpp")
                         .requires(commandSource -> commandSource.hasPermissionLevel(1))
                         .then(Commands.argument("player", EntityArgument.player())
                         .executes(TppCommand::teleportToPlayer));
-        dispatcher.register(tp);
+        dispatcher.register(tpp);
     }
 
     private static int teleportToPlayer(CommandContext<CommandSource> commandContext) throws CommandSyntaxException {

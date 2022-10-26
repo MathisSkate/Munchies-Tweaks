@@ -16,12 +16,12 @@ import static net.minecraft.util.Util.DUMMY_UUID;
 
 public class TpHereCommand {
     public static void register(CommandDispatcher<CommandSource> dispatcher) {
-        LiteralArgumentBuilder<CommandSource> tp =
+        LiteralArgumentBuilder<CommandSource> tphere =
                 Commands.literal("tphere")
                         .requires(commandSource -> commandSource.hasPermissionLevel(1))
                         .then(Commands.argument("player", EntityArgument.player())
                         .executes(TpHereCommand::teleportAPlayer));
-        dispatcher.register(tp);
+        dispatcher.register(tphere);
     }
 
     private static int teleportAPlayer(CommandContext<CommandSource> commandContext) throws CommandSyntaxException {
