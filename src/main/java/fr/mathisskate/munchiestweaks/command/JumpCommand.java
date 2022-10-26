@@ -39,7 +39,7 @@ public class JumpCommand {
         if(block.getType() == RayTraceResult.Type.BLOCK) {
             BlockPos pos = ((BlockRayTraceResult)block).getPos();
             int y = pos.getY();
-            int maxY = y + 10;
+            int maxY = y + 20;
             while (y <= maxY) {
                 BlockPos blockPos = new BlockPos(pos.getX(), y, pos.getZ());
                 if (!isAir(world.getBlockState(blockPos)))
