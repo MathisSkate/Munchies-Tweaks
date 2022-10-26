@@ -15,6 +15,7 @@ public class RegisterCommands {
         DiscordCommand.register(dispatcher);
         EnderChestCommand.register(dispatcher);
         FurnaceCommand.register(dispatcher);
+        JumpCommand.register(dispatcher);
         SiteCommand.register(dispatcher);
         TopCommand.register(dispatcher);
         TpHereCommand.register(dispatcher);
