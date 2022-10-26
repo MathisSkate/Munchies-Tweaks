@@ -1,4 +1,4 @@
-package fr.mathisskate.munchiestweaks.commande;
+package fr.mathisskate.munchiestweaks.command;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.CommandDispatcher;

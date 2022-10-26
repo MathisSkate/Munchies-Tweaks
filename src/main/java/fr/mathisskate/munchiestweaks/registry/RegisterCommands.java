@@ -1,7 +1,7 @@
 package fr.mathisskate.munchiestweaks.registry;
 
 import com.mojang.brigadier.CommandDispatcher;
-import fr.mathisskate.munchiestweaks.commande.*;
+import fr.mathisskate.munchiestweaks.command.*;
 import net.minecraft.command.CommandSource;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
