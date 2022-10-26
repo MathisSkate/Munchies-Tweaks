@@ -9,7 +9,7 @@ public final class Config {
         public static final ForgeConfigSpec.ConfigValue<Boolean> hasMobsEffects;
 
         static {
-            BUILDER.push("Config for Munchies Tweaks");
+            BUILDER.push("Config of Munchies Tweaks");
             hasMobsEffects = BUILDER.comment("If you want to play with Mobs Effects ?").define("Mobs Effects", true);
             BUILDER.pop();
             SPEC = BUILDER.build();
