@@ -2,6 +2,7 @@ package fr.mathisskate.munchiestweaks.event;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.potion.Effects;
+import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -28,5 +29,15 @@ public class VanishEvents {
                     if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
                         event.setCanceled(true);
             }
+    }
+
+    @SubscribeEvent
+    public void hidePlayer(RenderPlayerEvent event) {
+        if (event.getPlayer() != null) {
+            PlayerEntity player = event.getPlayer();
+            if (player.getActivePotionEffect(Effects.INVISIBILITY) != null)
+                if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
+                    event.setCanceled(true);
+        }
     }
 }
