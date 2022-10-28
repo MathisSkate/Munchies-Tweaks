@@ -31,8 +31,9 @@ public class MunchiesTweaksMain {
 
     private void setup(final FMLCommonSetupEvent event) {
         MinecraftForge.EVENT_BUS.register(RegisterCommands.class);
-        MinecraftForge.EVENT_BUS.register(new VanishEvents());
-        if(Config.hasMobsEffects.get())
+        if (Config.VANISH.get())
+            MinecraftForge.EVENT_BUS.register(new VanishEvents());
+        if (Config.MOBSEFFECTS.get())
             MinecraftForge.EVENT_BUS.register(new MobEffectEvents());
     }
 
