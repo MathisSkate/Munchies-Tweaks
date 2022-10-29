@@ -7,7 +7,7 @@ import net.minecraft.command.CommandSource;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
-public class RegisterCommands {
+public class ModCommands {
     @SubscribeEvent
     public static void onRegisterCommandEvent(RegisterCommandsEvent event) {
         CommandDispatcher<CommandSource> dispatcher = event.getDispatcher();

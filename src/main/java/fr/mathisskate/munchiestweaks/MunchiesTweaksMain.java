@@ -2,7 +2,8 @@ package fr.mathisskate.munchiestweaks;
 
 import fr.mathisskate.munchiestweaks.event.MobEffectEvents;
 import fr.mathisskate.munchiestweaks.event.VanishEvents;
-import fr.mathisskate.munchiestweaks.registry.RegisterCommands;
+import fr.mathisskate.munchiestweaks.registry.ModCommands;
+import fr.mathisskate.munchiestweaks.registry.ModEffects;
 import fr.mathisskate.munchiestweaks.util.Config;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -27,10 +28,14 @@ public class MunchiesTweaksMain {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC, "munchies_tweaks_common.toml");
+
+        if (Config.VANISH.get()) {
+            ModEffects.registerEffects();
+        }
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-        MinecraftForge.EVENT_BUS.register(RegisterCommands.class);
+        MinecraftForge.EVENT_BUS.register(ModCommands.class);
         if (Config.VANISH.get())
             MinecraftForge.EVENT_BUS.register(new VanishEvents());
         if (Config.MOBSEFFECTS.get())

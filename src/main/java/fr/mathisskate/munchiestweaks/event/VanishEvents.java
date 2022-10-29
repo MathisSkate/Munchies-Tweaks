@@ -1,7 +1,7 @@
 package fr.mathisskate.munchiestweaks.event;
 
+import fr.mathisskate.munchiestweaks.registry.ModEffects;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.potion.Effects;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -10,34 +10,31 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 public class VanishEvents {
 
     @SubscribeEvent
-    public void onVanishHurt(LivingHurtEvent event) {
+    public void onVanishedPlayerHurt(LivingHurtEvent event) {
         if (event.getEntity() != null)
             if (event.getEntity() instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) event.getEntity();
-                if (player.getActivePotionEffect(Effects.INVISIBILITY) != null)
-                    if (((PlayerEntity) event.getEntity()).getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
-                        event.setCanceled(true);
+                if (player.getActivePotionEffect(ModEffects.VANISH.get()) != null)
+                    event.setCanceled(true);
             }
     }
 
     @SubscribeEvent
-    public void onVanishAttacked(LivingAttackEvent event) {
+    public void onVanishedPlayerTarget(LivingAttackEvent event) {
         if (event.getEntity() != null)
             if (event.getEntity() instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) event.getEntity();
-                if (player.getActivePotionEffect(Effects.INVISIBILITY) != null)
-                    if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
-                        event.setCanceled(true);
+                if (player.getActivePotionEffect(ModEffects.VANISH.get()) != null)
+                    event.setCanceled(true);
             }
     }
 
     @SubscribeEvent
-    public void hidePlayer(RenderPlayerEvent event) {
+    public void onHideVanishedPlayer(RenderPlayerEvent event) {
         if (event.getPlayer() != null) {
             PlayerEntity player = event.getPlayer();
-            if (player.getActivePotionEffect(Effects.INVISIBILITY) != null)
-                if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
-                    event.setCanceled(true);
+            if (player.getActivePotionEffect(ModEffects.VANISH.get()) != null)
+                event.setCanceled(true);
         }
     }
 }
