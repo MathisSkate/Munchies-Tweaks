@@ -25,9 +25,9 @@ public class VanishEvents {
 
     @SubscribeEvent
     public void onLivingTargetVanishedPlayer(LivingSetAttackTargetEvent event) {
-        if (event.getEntity() != null)
+        if (event.getTarget() != null)
             if (event.getTarget() instanceof PlayerEntity) {
-                PlayerEntity player = (PlayerEntity) event.getEntity();
+                PlayerEntity player = (PlayerEntity) event.getTarget();
                 if (player.getActivePotionEffect(ModEffects.VANISH.get()) != null)
                     event.getEntityLiving().setRevengeTarget(null);
             }
