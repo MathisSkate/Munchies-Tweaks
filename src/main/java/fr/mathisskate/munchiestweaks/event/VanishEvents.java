@@ -28,12 +28,13 @@ public class VanishEvents {
         if (event.getTarget() != null)
             if (event.getTarget() instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) event.getTarget();
-                if (event.getEntityLiving() instanceof MobEntity) {
-                    MobEntity attacker = (MobEntity) event.getEntityLiving();
-                    if (player.getActivePotionEffect(Effects.INVISIBILITY) != null)
-                        if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
-                            attacker.setAttackTarget(null);
-                }
+                if (event.getEntityLiving() != null)
+                    if (event.getEntityLiving() instanceof MobEntity) {
+                        MobEntity attacker = (MobEntity) event.getEntityLiving();
+                        if (player.getActivePotionEffect(Effects.INVISIBILITY) != null)
+                            if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
+                                attacker.setAttackTarget(null);
+                    }
             }
     }
 
