@@ -1,25 +1,25 @@
 package fr.mathisskate.munchiestweaks.event;
 
-import fr.mathisskate.munchiestweaks.registry.ModEffects;
+import net.minecraft.entity.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.potion.Effects;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.living.LivingSetAttackTargetEvent;
-import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 
 public class VanishEvents {
-
     @SubscribeEvent
     public void onVanishedPlayerHurt(LivingHurtEvent event) {
         if (event.getEntity() != null)
             if (event.getEntity() instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) event.getEntity();
-                if (player.getActivePotionEffect(ModEffects.VANISH.get()) != null)
-                    event.setCanceled(true);
+                if (player.getActivePotionEffect(Effects.INVISIBILITY) != null)
+                    if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
+                        event.setCanceled(true);
             }
     }
 
@@ -28,8 +28,12 @@ public class VanishEvents {
         if (event.getTarget() != null)
             if (event.getTarget() instanceof PlayerEntity) {
                 PlayerEntity player = (PlayerEntity) event.getTarget();
-                if (player.getActivePotionEffect(ModEffects.VANISH.get()) != null)
-                    event.getEntityLiving().setRevengeTarget(null);
+                if (event.getEntityLiving() instanceof MobEntity) {
+                    MobEntity attacker = (MobEntity) event.getEntityLiving();
+                    if (player.getActivePotionEffect(Effects.INVISIBILITY) != null)
+                        if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
+                            attacker.setAttackTarget(null);
+                }
             }
     }
 
@@ -38,19 +42,9 @@ public class VanishEvents {
     public void onPreHideVanishedPlayer(RenderPlayerEvent event) {
         if (event.getPlayer() != null) {
             PlayerEntity player = event.getPlayer();
-            if (player.getActivePotionEffect(ModEffects.VANISH.get()) != null)
-                event.setCanceled(true);
-        }
-    }
-
-    @SubscribeEvent
-    public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
-        if (event.getPlayer() != null) {
-            PlayerEntity player = event.getPlayer();
-            if (player.getActivePotionEffect(ModEffects.VANISH.get()) != null) {
-                player.removePotionEffect(ModEffects.VANISH.get());
-                player.setInvisible(false);
-            }
+            if (player.getActivePotionEffect(Effects.INVISIBILITY) != null)
+                if (player.getActivePotionEffect(Effects.INVISIBILITY).getAmplifier() == 99)
+                    event.setCanceled(true);
         }
     }
 }
