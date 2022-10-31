@@ -10,89 +10,68 @@ import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
+import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
+@Mod.EventBusSubscriber
 public class MobEffectEvents {
     @SubscribeEvent
-    public static void playerHurtEvent(LivingHurtEvent event) {
+    public static void playerHurtEvent(LivingDamageEvent event) {
         Entity entity = event.getEntityLiving();
         DamageSource source = event.getSource();
         if (source.getTrueSource() != null) {
             EntityType<?> type = source.getTrueSource().getType();
             if (entity.getType() == EntityType.PLAYER) {
                 PlayerEntity player = (PlayerEntity) entity;
-                if (!player.getActiveItemStack().isShield(player)) {
-                    if (type == EntityType.ZOMBIE) {
+                if (!player.getActiveItemStack().isShield(player))
+                    if (type == EntityType.ZOMBIE)
                         player.addPotionEffect(new EffectInstance(Effects.HUNGER, 15 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.BLAZE) {
+                    else if (type == EntityType.BLAZE)
                         player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 15 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.CREEPER) {
+                    else if (type == EntityType.CREEPER)
                         player.addPotionEffect(new EffectInstance(Effects.NAUSEA, 15 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.DRAGON_FIREBALL) {
+                    else if (type == EntityType.DRAGON_FIREBALL)
                         player.addPotionEffect(new EffectInstance(Effects.NAUSEA, 15 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.ENDERMAN) {
+                    else if (type == EntityType.ENDERMAN)
                         player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.ENDERMITE) {
+                    else if (type == EntityType.ENDERMITE)
                         player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.END_CRYSTAL) {
+                    else if (type == EntityType.END_CRYSTAL)
                         player.addPotionEffect(new EffectInstance(Effects.NAUSEA, 5 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.ENDER_DRAGON) {
+                    else if (type == EntityType.ENDER_DRAGON)
                         player.addPotionEffect(new EffectInstance(Effects.BLINDNESS, 15 * 20, 9, false, false));
-                    }
-                    else if (type == EntityType.EVOKER) {
+                    else if (type == EntityType.EVOKER)
                         player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.EVOKER_FANGS) {
+                    else if (type == EntityType.EVOKER_FANGS)
                         player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.FIREBALL) {
+                    else if (type == EntityType.FIREBALL)
                         player.addPotionEffect(new EffectInstance(Effects.NAUSEA, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.GIANT) {
+                    else if (type == EntityType.GIANT)
                         player.addPotionEffect(new EffectInstance(Effects.HUNGER, 10 * 20, 9, false, false));
-                    }
-                    else if (type == EntityType.GUARDIAN) {
+                    else if (type == EntityType.GUARDIAN)
                         player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.MAGMA_CUBE) {
+                    else if (type == EntityType.MAGMA_CUBE)
                         player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.ZOMBIFIED_PIGLIN) {
+                    else if (type == EntityType.ZOMBIFIED_PIGLIN)
                         player.addPotionEffect(new EffectInstance(Effects.HUNGER, 15 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.SILVERFISH) {
+                    else if (type == EntityType.SILVERFISH)
                         player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.SLIME) {
+                    else if (type == EntityType.SLIME)
                         player.addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.SPIDER) {
+                    else if (type == EntityType.SPIDER)
                         player.addPotionEffect(new EffectInstance(Effects.POISON, 15 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.VEX) {
+                    else if (type == EntityType.VEX)
                         player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.ZOMBIE_VILLAGER) {
+                    else if (type == EntityType.ZOMBIE_VILLAGER)
                         player.addPotionEffect(new EffectInstance(Effects.HUNGER, 15 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.SMALL_FIREBALL) {
+                    else if (type == EntityType.SMALL_FIREBALL)
                         player.addPotionEffect(new EffectInstance(Effects.SLOWNESS, 15 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.HOGLIN) {
+                    else if (type == EntityType.HOGLIN)
                         player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 10 * 20, 0, false, false));
-                    }
-                    else if (type == EntityType.SKELETON) {
+                    else if (type == EntityType.SKELETON)
                         player.addPotionEffect(new EffectInstance(Effects.WEAKNESS, 15 * 20, 0, false, false));
-                    }
-                }
             }
         }
     }

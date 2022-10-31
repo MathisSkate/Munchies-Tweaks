@@ -7,7 +7,9 @@ import net.minecraft.util.Util;
 import net.minecraft.util.text.StringTextComponent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 
+@Mod.EventBusSubscriber
 public class FirstSpawnEvents {
     @SubscribeEvent
     public void onPlayerFirstJoin(PlayerEvent.PlayerLoggedInEvent event) {
